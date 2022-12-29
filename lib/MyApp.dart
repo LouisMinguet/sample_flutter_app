@@ -56,7 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     }).toList(),
                     onChanged: (String? newValue) {
                       setState(() {
-                        print(newValue);
                         selectedLanguage = newValue ?? "English";
                         if(selectedLanguage == "English") {
                           context.setLocale(const Locale('en'));
