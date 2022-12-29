@@ -16,7 +16,7 @@ void main() async {
 }
 
 // Packages to add :
-// - Languages :      https://pub.dev/packages/easy_localization
-// > To add more languages, create a file in assets/translations AND add it into ios/Runner/Info.plist, in CFBundleLocalizations
+  // - Languages :      https://pub.dev/packages/easy_localization
+    // > To add more languages, create a file in assets/translations AND add it into ios/Runner/Info.plist, in CFBundleLocalizations
 // - Themes schemes : https://pub.dev/packages/adaptive_theme
 // - Responsive :     https://pub.dev/packages/flutter_sizer

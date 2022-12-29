@@ -2,6 +2,7 @@
   "appbar_title":"Spanish version",
   "selected_language":"La lengua actual es {}, {param}",
   "settings": {
+    "title": "Parámetros",
     "languages": "Idioma :",
     "theme": "Tema :"
   }

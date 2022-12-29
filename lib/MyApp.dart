@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sample_flutter_app/settings/settings.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        theme: ThemeData(fontFamily: 'Montserrat'),
         debugShowCheckedModeBanner: false,
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
@@ -24,15 +25,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String selectedLanguage = 'English'; // Default language is English
-  List<String> languagesList = ['English', 'Français', 'Español'];
-  List<String> languagesTagList = ['en', 'fr', 'es'];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("appbar_title").tr(),
+        actions: [
+          IconButton(
+            onPressed: () {
+              setState(() {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SettingsPage()),
+                );
+              });
+            },
+            icon: const Icon(Icons.settings_rounded),
+          )
+        ],
       ),
       body: Center(
         child: Padding(
@@ -40,36 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text("selected_language")
-                  .tr(args: [selectedLanguage], namedArgs: {'param': 'Yeah!'}),
-              const Divider(),
-              const Text("Settings :"),
-              Row(
-                children: [
-                  const Text("settings.languages").tr(),
-                  const Spacer(),
-                  DropdownButton(
-                    value: selectedLanguage,
-                    icon: const Icon(Icons.keyboard_arrow_down),
-                    items: languagesList.map((items) {
-                      return DropdownMenuItem(value: items, child: Text(items));
-                    }).toList(),
-                    onChanged: (String? newValue) {
-                      setState(() {
-                        selectedLanguage = newValue ?? "English";
-                        if(selectedLanguage == "English") {
-                          context.setLocale(const Locale('en'));
-                        } else if(selectedLanguage == "Français") {
-                          context.setLocale(const Locale('fr'));
-                        } else if(selectedLanguage == "Español") {
-                          context.setLocale(const Locale('es'));
-                        }
-                      });
-                    },
-                  ),
-                ],
-              ),
-              const Text("settings.theme").tr(),
+              const Text("selected_language").tr(
+                  args: [context.locale.toString()],
+                  namedArgs: {'param': 'Yeah!'}),
             ],
           ),
         ),
