@@ -44,7 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   .tr(args: [selectedLanguage], namedArgs: {'param': 'Yeah!'}),
               const Divider(),
               const Text("Settings :"),
-
               Row(
                 children: [
                   const Text("settings.languages").tr(),
@@ -71,7 +70,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-
               const Text("settings.theme").tr(),
             ],
           ),
