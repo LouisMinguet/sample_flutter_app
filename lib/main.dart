@@ -65,3 +65,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+// Packages to add :
+  // - Languages :      https://pub.dev/packages/easy_localization
+  // - Themes schemes : https://pub.dev/packages/adaptive_theme
+  // - Responsive :     https://pub.dev/packages/flutter_sizer
