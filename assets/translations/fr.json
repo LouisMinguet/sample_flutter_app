@@ -1,0 +1,8 @@
+{
+  "appbar_title":"French version",
+  "selected_language":"La langue actuelle est {}, {param}",
+  "settings": {
+    "languages": "Langue :",
+    "theme": "Theme :"
+  }
+}
