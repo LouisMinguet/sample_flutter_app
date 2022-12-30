@@ -21,6 +21,8 @@ class SettingsPageState extends State<SettingsPage> {
   void initState() {
     super.initState();
 
+    // String languageCode = context.locale.toLanguageTag();
+    // print(languageCode);
     _isDarkMode = (AdaptiveTheme.of(context).brightness == Brightness.dark);
   }
 
@@ -107,7 +109,7 @@ class SettingsPageState extends State<SettingsPage> {
     return Text(
       text,
       style: const TextStyle(
-        color: Color.fromARGB(255, 70, 70, 70),
+        // color: Color.fromARGB(255, 70, 70, 70),
         fontWeight: FontWeight.w500
       ),
     );

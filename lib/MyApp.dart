@@ -13,13 +13,11 @@ class MyApp extends StatelessWidget {
     return AdaptiveTheme(
       light: ThemeData(
           brightness: Brightness.light,
-          primarySwatch: Colors.red,
-          accentColor: Colors.amber,
+          // Custom the themes here
           fontFamily: 'Poppins'),
       dark: ThemeData(
           brightness: Brightness.dark,
-          primarySwatch: Colors.red,
-          accentColor: Colors.amber,
+          // Custom the themes here
           fontFamily: 'Poppins'),
       initial: savedThemeMode ?? AdaptiveThemeMode.light,
       builder: (theme, darkTheme) => MaterialApp(
