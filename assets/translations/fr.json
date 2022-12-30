@@ -3,7 +3,7 @@
   "selected_language":"La langue actuelle est {}, {param}",
   "settings": {
     "title": "Paramètres",
-    "languages": "Langue :",
-    "theme": "Theme :"
+    "languages": "Langue",
+    "darkmode": "Mode sombre"
   }
 }

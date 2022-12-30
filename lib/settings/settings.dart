@@ -14,6 +14,8 @@ class SettingsPageState extends State<SettingsPage> {
   List<String> languagesList = ['English', 'Français', 'Español'];
   List<String> languagesTagList = ['en', 'fr', 'es'];
 
+  bool _isDarkMode = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +73,16 @@ class SettingsPageState extends State<SettingsPage> {
     return Row(
       children: [
         settingsIcon(Icons.dark_mode_outlined),
-        settingsText("settings.theme").tr(),
+        settingsText("settings.darkmode").tr(),
+        const Spacer(),
+        Switch(
+          value: _isDarkMode,
+          onChanged: (b) {
+            setState(() {
+              _isDarkMode = b;
+            });
+          },
+        ),
       ],
     );
   }
