@@ -29,7 +29,7 @@ flutter:
     - assets/translations/
 
   fonts:
-    - family: Montserrat
+    - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Light.ttf
           weight: 300

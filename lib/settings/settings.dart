@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,13 @@ class SettingsPageState extends State<SettingsPage> {
   List<String> languagesTagList = ['en', 'fr', 'es'];
 
   bool _isDarkMode = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _isDarkMode = (AdaptiveTheme.of(context).brightness == Brightness.dark);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +88,14 @@ class SettingsPageState extends State<SettingsPage> {
           onChanged: (b) {
             setState(() {
               _isDarkMode = b;
+
+              if(_isDarkMode == true) {
+                print("Switch to dark");
+                AdaptiveTheme.of(context).setDark();
+              } else {
+                print("Switch to light");
+                AdaptiveTheme.of(context).setLight();
+              }
             });
           },
         ),

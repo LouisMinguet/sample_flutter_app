@@ -1,19 +1,37 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:sample_flutter_app/settings/settings.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final AdaptiveThemeMode? savedThemeMode;
+
+  const MyApp({super.key, this.savedThemeMode});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        theme: ThemeData(fontFamily: 'Montserrat'),
+    return AdaptiveTheme(
+      light: ThemeData(
+          brightness: Brightness.light,
+          primarySwatch: Colors.red,
+          accentColor: Colors.amber,
+          fontFamily: 'Poppins'),
+      dark: ThemeData(
+          brightness: Brightness.dark,
+          primarySwatch: Colors.red,
+          accentColor: Colors.amber,
+          fontFamily: 'Poppins'),
+      initial: savedThemeMode ?? AdaptiveThemeMode.light,
+      builder: (theme, darkTheme) => MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: theme,
+        darkTheme: darkTheme,
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
-        home: const MyHomePage());
+        home: const MyHomePage(),
+      ),
+    );
   }
 }
 
