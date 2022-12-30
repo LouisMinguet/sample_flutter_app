@@ -81,14 +81,18 @@ class SettingsPageState extends State<SettingsPage> {
       text,
       style: const TextStyle(
         color: Color.fromARGB(255, 70, 70, 70),
+        fontWeight: FontWeight.w500
       ),
     );
   }
 
-  Icon settingsIcon(IconData icon) {
-    return Icon(
-      icon,
-      color: const Color.fromARGB(255, 125, 125, 125),
+  Padding settingsIcon(IconData icon) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 8.0),
+      child: Icon(
+        icon,
+        color: const Color.fromARGB(255, 125, 125, 125),
+      ),
     );
   }
 }
