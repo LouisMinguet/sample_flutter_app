@@ -11,7 +11,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 class SettingsPageState extends State<SettingsPage> {
-  String selectedLanguage = 'English'; // Default language is English
+  String selectedLanguage = 'English';
   Map<String, String> languagesList = {
     "English": "en",
     "Français": "fr",
