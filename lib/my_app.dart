@@ -1,6 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:sample_flutter_app/settings/settings.dart';
 
 class MyApp extends StatelessWidget {
@@ -27,7 +28,9 @@ class MyApp extends StatelessWidget {
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
-        home: const MyHomePage(),
+        home: FlutterSizer(builder: (context, orientation, screenType) {
+          return const MyHomePage();
+        }),
       ),
     );
   }
@@ -62,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.only(right: 16.0, left: 16.0),
+          padding: EdgeInsets.only(right: 16.0.dp, left: 16.0.dp),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
