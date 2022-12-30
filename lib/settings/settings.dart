@@ -1,6 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -10,7 +11,6 @@ class SettingsPage extends StatefulWidget {
 }
 
 class SettingsPageState extends State<SettingsPage> {
-
   String selectedLanguage = 'English'; // Default language is English
   Map<String, String> languagesList = {
     "English": "en",
@@ -29,9 +29,8 @@ class SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-
     languagesList.forEach((key, value) {
-      if(value == context.locale.toLanguageTag()) {
+      if (value == context.locale.toLanguageTag()) {
         selectedLanguage = key;
       }
     });
@@ -46,10 +45,13 @@ class SettingsPageState extends State<SettingsPage> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0.dp),
         child: Column(
           children: [
-            const Text("settings.title", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0),).tr(),
+            Text(
+              "settings.title",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0.dp),
+            ).tr(),
             languageRow(),
             themeRow(),
           ],
@@ -59,7 +61,6 @@ class SettingsPageState extends State<SettingsPage> {
   }
 
   Row languageRow() {
-
     List<String> languagesNameList = [];
     languagesList.forEach((key, value) {
       languagesNameList.add(key);
@@ -105,11 +106,9 @@ class SettingsPageState extends State<SettingsPage> {
             setState(() {
               _isDarkMode = b;
 
-              if(_isDarkMode == true) {
-                print("Switch to dark");
+              if (_isDarkMode == true) {
                 AdaptiveTheme.of(context).setDark();
               } else {
-                print("Switch to light");
                 AdaptiveTheme.of(context).setLight();
               }
             });
@@ -123,15 +122,14 @@ class SettingsPageState extends State<SettingsPage> {
     return Text(
       text,
       style: const TextStyle(
-        // color: Color.fromARGB(255, 70, 70, 70),
-        fontWeight: FontWeight.w500
-      ),
+          // color: Color.fromARGB(255, 70, 70, 70),
+          fontWeight: FontWeight.w500),
     );
   }
 
   Padding settingsIcon(IconData icon) {
     return Padding(
-      padding: const EdgeInsets.only(right: 8.0),
+      padding: EdgeInsets.only(right: 8.0.dp),
       child: Icon(
         icon,
         color: const Color.fromARGB(255, 125, 125, 125),
