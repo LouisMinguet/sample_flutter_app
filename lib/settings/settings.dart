@@ -12,8 +12,11 @@ class SettingsPage extends StatefulWidget {
 class SettingsPageState extends State<SettingsPage> {
 
   String selectedLanguage = 'English'; // Default language is English
-  List<String> languagesList = ['English', 'Français', 'Español'];
-  List<String> languagesTagList = ['en', 'fr', 'es'];
+  Map<String, String> languagesList = {
+    "English": "en",
+    "Français": "fr",
+    "Español": "es"
+  };
 
   bool _isDarkMode = false;
 
@@ -21,13 +24,18 @@ class SettingsPageState extends State<SettingsPage> {
   void initState() {
     super.initState();
 
-    // String languageCode = context.locale.toLanguageTag();
-    // print(languageCode);
     _isDarkMode = (AdaptiveTheme.of(context).brightness == Brightness.dark);
   }
 
   @override
   Widget build(BuildContext context) {
+
+    languagesList.forEach((key, value) {
+      if(value == context.locale.toLanguageTag()) {
+        selectedLanguage = key;
+      }
+    });
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -51,6 +59,12 @@ class SettingsPageState extends State<SettingsPage> {
   }
 
   Row languageRow() {
+
+    List<String> languagesNameList = [];
+    languagesList.forEach((key, value) {
+      languagesNameList.add(key);
+    });
+
     return Row(
       children: [
         settingsIcon(Icons.language_rounded),
@@ -59,7 +73,7 @@ class SettingsPageState extends State<SettingsPage> {
         DropdownButton(
           value: selectedLanguage,
           icon: const Icon(Icons.keyboard_arrow_down),
-          items: languagesList.map((items) {
+          items: languagesNameList.map((items) {
             return DropdownMenuItem(value: items, child: Text(items));
           }).toList(),
           onChanged: (String? newValue) {
