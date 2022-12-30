@@ -1,6 +1,6 @@
 # Sample Flutter App
 
-## Work in progress : 0%
+## Work in progress : 90%
 
 A very simple Flutter application that contains useful features for applications, such as dark/light themes, different languages and responsive
 Just clone this repo when you need to start a fresh app with the minimum of useful features
